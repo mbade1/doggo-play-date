@@ -4,8 +4,6 @@ class CreateParks < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :hound
       t.string :description
-      t.belongs_to :user
-      t.belongs_to :playdate
 
       t.timestamps
     end
