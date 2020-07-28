@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+  delete '/session' => 'sessions#destroy'
 
   resources :comments
   resources :playdates
