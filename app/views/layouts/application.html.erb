@@ -17,10 +17,10 @@
       <% if !current_user %>
         <li><a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a></li>
         <li><%= link_to "Log in", login_path, class:"navbar-brand" %></li>
-        <% end %>
+      <% end %>
       <% if current_user %>
         <li><%= link_to "#{current_user.username}'s profile", user_path(current_user), class:"navbar-brand"%></li>
-        <li>  <%#= link_to "Log Out", session_path, class:"navbar-brand",method:'delete' %></li>
+        <li><%= link_to "Log Out", session_path, class:"navbar-brand", method:'delete' %></li>
       <% end %>
   </div>
 

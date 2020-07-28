@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
     def welcome #Home Page
     end
     
@@ -9,8 +10,8 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
         @user.save
-        session[:user] = @user
-        redirect_to user_path(@user)
+        session[:user_id] = @user.id
+        redirect_to user_path(current_user.id)
     else
         render :new
     end
@@ -22,7 +23,5 @@ class SessionsController < ApplicationController
       redirect_to root_url
     end
   end
-
-
 
 end

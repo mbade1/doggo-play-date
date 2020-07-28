@@ -1,4 +1,5 @@
 class ParksController < ApplicationController
+    before_action :require_login
 
     def index
         @parks = Park.all
