@@ -1,0 +1,16 @@
+<h1>Dog Parks in Austin</h1>
+
+<table>
+  <tr>
+    <th>Name of Park</th>
+    <th>Location</th>
+    <th>Hound Size Recommendation</th>
+  </tr>
+  <% @parks.each do |park| %>
+    <tr>
+      <td><%= link_to "#{park.name}", park_path(park) %></td>
+      <td><%= park.location %></td>
+      <td><%= park.hound %></td>
+    </tr>
+  <% end %>
+  </table>
