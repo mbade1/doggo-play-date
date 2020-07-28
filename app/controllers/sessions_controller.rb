@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
     def welcome 
     end
     
-    def new      
+    def new    
+      @user = User.new  
     end
     
     def create
@@ -13,6 +14,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(current_user.id)
     else
+        flash.now[:message] = "Please fill in all fields correctly."
         render :new
     end
   end
