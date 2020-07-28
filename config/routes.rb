@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/session' => 'sessions#destroy'
 
-  resources :comments
+  
+  resources :parks do 
+    resources :comments
+  end
   resources :playdates
-  resources :parks
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
