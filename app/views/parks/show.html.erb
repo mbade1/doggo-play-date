@@ -7,7 +7,7 @@ Description of Park: <%= @park.description %></h3>
 
 
 <% @park.playdates.each do |playdate| %>
-    <li><%= link_to "#{playdate.date.strftime("%F")}", playdate_path(playdate)%> <%= playdate.time.strftime("%r") %></li>
+    <li><%= link_to "#{playdate.date.strftime("%F")}", park_playdates_path(playdate)%> <%= playdate.time.strftime("%r") %></li>
 <% end %>
 
 
