@@ -18,12 +18,12 @@ park_4 = Park.create(name: "Big Dogz Only", location: "1234 Big Dog City", hound
 park_5 = Park.create(name: "Secret Agent Pups Only", location: "001 Bond Drive", hound: "Pupper", description: "James Bond themed dog park")
 park_6 = Park.create(name: "Jumpin Puppers and Doggos Park",location: "2000 Trampoline Drive", hound: "All", description: "Trampoline Park for Dogs")
 
-playdate_1 = Playdate.create(date: "2007,11,19,8,37,48,'-06:00'", time: "2007,11,19,8,37,48,'-06:00'", park_id: 1, user_id: 1)
-playdate_2 = Playdate.create(date: nil, time: nil, park_id: 1, user_id: 1)
-playdate_3 = Playdate.create(date: nil, time: nil, park_id: 1, user_id: 2)
-playdate_4 = Playdate.create(date: nil, time: nil, park_id: 1, user_id: 2)
-playdate_5 = Playdate.create(date: nil, time: nil, park_id: 1, user_id: 3)
-playdate_6 = Playdate.create(date: nil, time: nil, park_id: 1, user_id: 3)
+playdate_1 = Playdate.create(date: "2020-01-01", time: '-12:00', park_id: 1, user_id: 1)
+playdate_2 = Playdate.create(date: "2020-05-01", time: '-24:00', park_id: 1, user_id: 1)
+playdate_3 = Playdate.create(date: "2020-07-01", time: '-23:00', park_id: 1, user_id: 2)
+playdate_4 = Playdate.create(date: "2020-07-19", time: '-19:00', park_id: 2, user_id: 2)
+playdate_5 = Playdate.create(date: "2022-01-05", time: '-18:00', park_id: 2, user_id: 3)
+playdate_6 = Playdate.create(date: "2022-01-01", time: '-14:00', park_id: 3, user_id: 3)
 
 comment_1 = Comment.create(comment: "Wow! What a beautiful park!", user_id: 1, playdate_id: 1)
 comment_2 = Comment.create(comment: "I love this park!", user_id: 1, playdate_id: 1)
