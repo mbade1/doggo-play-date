@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :playdate
+  belongs_to :park
 end

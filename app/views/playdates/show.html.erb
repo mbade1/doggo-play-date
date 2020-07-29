@@ -31,18 +31,4 @@
 </table>
 
 
-  <div class="comment-container">
-  <h3>leave a comment here</h3><!-- >
-    <form id="comment-form" action="/parks/:park_id/comment" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Ri8Y6cuZ4FuEu/Fqn7WdLzg8DEHjMjF1FL8l1oC1pFH9av/86CKT9msoLWQshv2cjD65QNgcuR7UAgsPpf1x3Q==">
-        <input type="text" name="comment" id="comment" value="">
-        <input type="hidden" name="group_id" id="group_id" value="1">
-        <input type="hidden" name="user_id" id="user_id" value="1">
-        <input type="submit" name="commit" value="comment" id="submit-comment">
-    </form> -->
-        <%= form_tag "/parks/:park_id/comments", :id => 'comment-form', :method => :post do %>
-          <%= text_field_tag "comment" %>
-          <%= hidden_field_tag :playdate_id, @playdate.id %>
-          <%#= hidden_field_tag :user_id, @user.id %>
-          <%= submit_tag "comment", :id => "submit-comment"%>
-        <% end %>
-</div>
+
