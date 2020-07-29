@@ -9,4 +9,12 @@ class ParksController < ApplicationController
         @park = Park.find_by(:id => params[:id])
         @playdates = Playdate.all
     end
+
+    def new
+        @park = Park.new
+    end
+
+    def create
+        #info for creating a new park - USE PARAMS!!
+    end
 end

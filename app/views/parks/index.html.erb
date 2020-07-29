@@ -1,4 +1,5 @@
-<h1>Dog Parks in Austin</h1>
+<h1>Austin Dog Parks</h1>
+ <%= image_tag 'dogpark_2.jpg' %>
 
 <p><i>Click on the name of a park to see more play dates and to set up a play date!</i></p>
 <table>
@@ -15,3 +16,7 @@
     </tr>
   <% end %>
   </table>
+
+<br>
+  DON'T SEE A PARK?
+  <%= link_to "Add a New Park!", new_park_path %>
