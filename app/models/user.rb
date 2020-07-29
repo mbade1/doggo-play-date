@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :parks
     has_many :playdates 
-    has_many :commented_playdates, through: :parks, source: :playdates
+    has_many :comments, through: :parks
 
     has_secure_password
 

@@ -51,23 +51,16 @@ Description of Park: <u><%= @park.description %></u></h3>
 <% end %>
 
   <div class="comment-container">
-  <h3>leave a comment here</h3><!-- >
-    <form id="comment-form" action="/parks/:park_id/comment" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Ri8Y6cuZ4FuEu/Fqn7WdLzg8DEHjMjF1FL8l1oC1pFH9av/86CKT9msoLWQshv2cjD65QNgcuR7UAgsPpf1x3Q==">
-        <input type="text" name="comment" id="comment" value="">
-        <input type="hidden" name="group_id" id="group_id" value="1">
-        <input type="hidden" name="user_id" id="user_id" value="1">
-        <input type="submit" name="commit" value="comment" id="submit-comment">
-    </form> -->
+  <h3>leave a comment here</h3>
         <%= form_tag "/parks/:park_id/comments", :id => 'comment-form', :method => :post do %>
           <%= text_field_tag "comment" %>
-          <%= hidden_field_tag :playdate_id, @playdate.id %>
-          <%#= hidden_field_tag :user_id, @user.id %>
+          <%#= hidden_field_tag :authenticity_token, cookies.authenticate %>
+          <%= hidden_field_tag :park_id, @park.id %>
+          <%= hidden_field_tag :user_id, current_user.id %>
           <%= submit_tag "comment", :id => "submit-comment"%>
         <% end %>
 </div>
-
-
-
+<% binding.pry %>
 <br><br>
 <p>Take a look at all of Austin's Dog Parks!</p>
 <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d220447.15412412822!2d-97.72612725981391!3d30.30866885137352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdog%20parks%20near%20Austin%2C%20TX!5e0!3m2!1sen!2sus!4v1595953926567!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
