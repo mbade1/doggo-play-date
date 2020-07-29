@@ -6,10 +6,6 @@ class Playdate < ApplicationRecord
     validates :time, presence: true 
     validates :park_id, presence: true 
     validates :user_id, presence: true 
-
-
-
-
 end
 
 
