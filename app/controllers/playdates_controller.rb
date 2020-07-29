@@ -6,7 +6,7 @@ class PlaydatesController < ApplicationController
     end
     
     def new
-        @park = Park.find_by(:id => params[:id])
+        @park = params[:park_id]
         @playdate = Playdate.new
     end
 
