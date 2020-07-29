@@ -1,4 +1,10 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
-<p>To set up a playdate at a park, click on one of the following parks:</p>
-<%= link_to "See Parks to set up a Playdate!", parks_path %>
+<h3>Your Current Doggo Playdates: </h3>
+
+<% @user.playdates.each do |playdate| %>
+    <li><%= link_to "#{playdate.park.name}", park_path(playdate.park) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= playdate.date.strftime("%F") %> &nbsp;&nbsp;&nbsp;&nbsp;   <%= playdate.time.strftime("%r") %></li>
+<% end %>
+
+<br><br>
+<%= link_to "See Parks to set up more Doggo Playdates!", parks_path %>

@@ -1,0 +1,11 @@
+<h1>Date of Playdate: <%= @playdate.date.strftime("%F") %></h1>
+<h1>Time of Playdate: <%= @playdate.time.strftime("%r") %></h1>
+
+<!-- Show something like user.playdates  -->
+
+<h3>See who's going!</h3>
+
+<ol>
+<% binding.pry %>
+  <li><%= @playdate.user.username %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @playdate.user.family_size %></li>
+</ol>
