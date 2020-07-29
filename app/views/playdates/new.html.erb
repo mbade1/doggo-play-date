@@ -1,11 +1,13 @@
 <h1>Add a New Playdate!</h1>
-<%= form_for(@playdate) do |f| %>
+<%= form_for @playdate do |f| %>
     <%= f.label :date %>
     <%= f.date_field :date %><br><br>
     <%= f.label :time %>
     <%= f.time_field :time %><br><br>
     <p>Select your park:</p>
-    <%= f.collection_select :park_id, :playdate, Park.all, :id, prompt: true %>
 
     <%= f.submit "Add Playdate!" %>
 <% end %>
+
+
+form_for @user, url: student_path(@user), html: { method: :put } do |f|

@@ -15,6 +15,17 @@ class ParksController < ApplicationController
     end
 
     def create
-        #info for creating a new park - USE PARAMS!!
+        @park = Park.new(park_params)
+        if @park.save
+          redirect_to park_path(@park)
+        else
+          render :new
+        end
+    end
+
+    private
+
+    def park_params
+        params.require(:park).permit(:name, :location, :hound, :description)
     end
 end

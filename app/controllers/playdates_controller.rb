@@ -6,6 +6,7 @@ class PlaydatesController < ApplicationController
     end
 
     def new
+        @park = Park.find_by(:id => params[:id])
         @playdate = Playdate.new
     end
 
@@ -19,17 +20,17 @@ class PlaydatesController < ApplicationController
     end
 
     def show
-        @playdate = Playdate.find_by(params[:id])
+        @user = current_user
+        @playdate = Playdate.find_by(:id => params[:id])
+        @park = Park.find_by(:id => params[:id])
+        @users = User.all
     end
 
 
     private
 
     def playdate_params
-
+        params.require(:playdate).permit(:date, :time)
     end
 
 end
-
-
-

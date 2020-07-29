@@ -1,9 +1,14 @@
 <h1>Add a new park!</h1>
 
-<!-- FORM FOR (@park)
+<%= form_for(@park) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+  <%= f.label :location %>
+  <%= f.text_field :location %><br />
+  <%= f.label :hound %>
+  <%= f.select :hound, raw("<option>Doggo</option><option>Pupper</option><option>All</option>") %><br />
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit %>
+<% end %>
 
-Fields: name (string)
-        location (string)
-        hound: Dropdown for Doggo, Pupper, or All
-        description: text box
-         -->
