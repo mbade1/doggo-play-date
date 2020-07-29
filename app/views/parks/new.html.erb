@@ -1,14 +1,14 @@
 <h1>Add a new park!</h1>
-
+<div class="new-form-left">
 <%= form_for(@park) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %><br />
+  <%= f.text_field :name %><br /><br />
   <%= f.label :location %>
-  <%= f.text_field :location %><br />
+  <%= f.text_field :location %><br /><br />
   <%= f.label :hound %>
-  <%= f.select :hound, raw("<option>Doggo</option><option>Pupper</option><option>All</option>") %><br />
+  <%= f.select :hound, raw("<option>Doggo</option><option>Pupper</option><option>All</option>") %><br /><br />
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description %><br /><br />
   <%= f.submit %>
 <% end %>
-
+</div>

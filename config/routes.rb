@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   delete '/session' => 'sessions#destroy'
+  post '/parks/:park_id/playdates/new' => 'playdates#create'
 
   
   resources :parks do 
-    resources :playdates
+    resources :playdates, only: [:show, :create, :edit, :destroy, :new]
     resources :comments
   end
 
-  resources :users
+  resources :users, only: [:new, :create, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

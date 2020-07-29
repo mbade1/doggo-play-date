@@ -1,13 +1,15 @@
 <h1>Add a New Playdate!</h1>
+<div class="new-form-left">
 <%= form_for @playdate do |f| %>
     <%= f.label :date %>
     <%= f.date_field :date %><br><br>
     <%= f.label :time %>
     <%= f.time_field :time %><br><br>
-    <p>Select your park:</p>
+    <%= hidden_field_tag :playdate, @playdate.id %>
+
 
     <%= f.submit "Add Playdate!" %>
 <% end %>
+</div>
 
 
-form_for @user, url: student_path(@user), html: { method: :put } do |f|

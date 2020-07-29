@@ -1,11 +1,10 @@
 <% @park.playdates.each do |playdate| %>
-    <% binding.pry %>
 
     <% if playdate.park_id == params[:id] %>
         <h1>Date of Playdate: <%= playdate.date.strftime("%F") %></h1>
         <h1>Time of Playdate: <%= playdate.time.strftime("%r") %></h1>
         <h3>Creator of this Playdate: <%= @user.username %>, with a family size of: <%= @user.family_size %> </h3>
-        <% end %>
+    <% end %>
 <% end %>
 
 
@@ -14,6 +13,7 @@
 <table>
     <th>User</th>
     <th>Comment</th>
+
 <% @playdate.comments.each do |comment| %>
     <% if @playdate.id == comment.playdate_id %>
       <tr>

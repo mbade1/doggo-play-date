@@ -11,7 +11,7 @@ Description of Park: <u><%= @park.description %></u></h3>
   <th>Host's Family Size</th>
 <% @park.playdates.each do |playdate| %>
     <tr>
-      <td><%= playdate.date.strftime("%F") %></td> 
+      <td><%= link_to "#{playdate.date.strftime("%F")}", park_playdate_path(playdate)%></td> 
       <td><%= playdate.time.strftime("%r") %> </td>
       <td><%= playdate.user.username %></td>
       <td><%= playdate.user.family_size %></td>

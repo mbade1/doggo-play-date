@@ -4,9 +4,8 @@ class PlaydatesController < ApplicationController
         @parks = Park.all
         @playdate = Playdate.all
     end
-
+    
     def new
-        @park = Park.find_by(:id => params[:id])
         @playdate = Playdate.new
     end
 
