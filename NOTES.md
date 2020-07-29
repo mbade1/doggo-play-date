@@ -1,10 +1,19 @@
 MORNING:
-    - Add a new Park DONE!!!
     - Add a playdate to each park (stubbed out - just work on views/playdates/new.html.erb and PlaydatesController#new)
-    - Add a comments to each playdate on PlaydatesController#show View (stub out in the morning - look at Rails-Project file for posting comment straight to the page.)
+    - Add a comments to each Park
     - Validations for a New Park, Comment, and New PlayDate 
-    - Office Hours  11-12!!!
 
 AFTERNOON:
     - Office Hours
     - OAuth linked with Facebook
+
+
+
+            <%= form_tag "/parks/:park_id/comments", :id => 'comment-form', :method => :post do %>
+          <%= text_field_tag "comment" %>
+          <%#= hidden_field_tag :authenticity_token, cookies.authenticate %>
+          <%= hidden_field_tag :park_id, @park.id %>
+          <% binding.pry %>
+          <%= hidden_field_tag :user_id, current_user.id %>
+          <%= submit_tag "comment", :id => "submit-comment"%>
+        <% end %>

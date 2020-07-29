@@ -9,6 +9,7 @@ class ParksController < ApplicationController
         @park = Park.find_by(:id => params[:id])
         @playdates = Playdate.all
         @comments = Comment.all
+        @comment = Comment.new
         @users = User.all
     end
 

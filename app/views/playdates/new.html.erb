@@ -5,7 +5,8 @@
     <%= f.date_field :date %><br><br>
     <%= f.label :time %>
     <%= f.time_field :time %><br><br>
-    <%= hidden_field_tag :playdate, @playdate.id %>
+    <%= hidden_field_tag :user_id, current_user.id %>
+    <%= hidden_field_tag :park_id, @park.id%>
 
 
     <%= f.submit "Add Playdate!" %>
