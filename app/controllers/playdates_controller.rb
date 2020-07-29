@@ -26,11 +26,11 @@ class PlaydatesController < ApplicationController
         @users = User.all
     end
 
-
     private
 
     def playdate_params
-        params.permit(:date, :time, :playdate, :park_id, :user_id)
+        params.permit(:playdate, :time, :date, :park_id, :user_id)
     end
 
 end
+
