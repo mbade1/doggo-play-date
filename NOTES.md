@@ -1,5 +1,5 @@
 MORNING:
-    - Add a playdate to each park (stubbed out - just work on views/playdates/new.html.erb and PlaydatesController#new)
+    - Add a playdate to each park 
     - Add a comments to each Park
     - Validations for a New Park, Comment, and New PlayDate 
 
