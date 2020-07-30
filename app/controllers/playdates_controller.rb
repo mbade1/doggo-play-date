@@ -34,6 +34,7 @@ class PlaydatesController < ApplicationController
     def update
         @playdate = Playdate.find_by(params[:id])
         @playdate.update(playdate_params)
+        flash[:message] = ""
         redirect_to playdate_path(@playdate)
     end
 

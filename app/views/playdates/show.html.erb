@@ -1,7 +1,9 @@
-<h1><%= @user.username.pluralize %> playdate details </h1> 
+<h1>Playdate details </h1> 
 
-<h2>Park: <%= @park.name %></h2>
+<h2>Park: <%= link_to "#{@park.name}", park_path(@park) %></h2>
 <h2>Date: <%= @playdate.date.strftime("%B %d, %Y") %></h2>
 <h2>Time: <%= @playdate.time.strftime("%I:%M %P") %></h2>
 
+<% if @user.username == @playdate.user_id %>
 <%= link_to "Edit this Playdate", edit_playdate_path(@playdate) %>
+<% end %>
