@@ -8,8 +8,8 @@
 <% @user.playdates.each do |playdate| %>
     <tr>
       <td><%= link_to "#{playdate.park.name}", park_path(playdate.park) %></td>
-      <td><%= playdate.date.strftime("%F") %></td>   
-      <td><%= playdate.time.strftime("%r") %></td>
+      <td><%= playdate.date.strftime("%B %d, %Y") %></td>   
+      <td><%= playdate.time.strftime("%I:%M %P") %></td>
     </tr>
 <% end %>
 </table>

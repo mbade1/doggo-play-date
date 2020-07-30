@@ -12,15 +12,11 @@ Description of Park: <u><%= @park.description %></u></h3>
     <th>Host's Family Size</th>
   <% @park.playdates.each do |playdate| %>
     <tr>
-
-    <%# REMOVE THE FOLLOWING IF/END AFTER /tr THIS LIFE %>
-    <% if (playdate.date && playdate.time) != nil %>
-      <td><%= link_to "#{playdate.date.strftime("%F")}", park_playdate_path(playdate)%></td> 
-      <td><%= playdate.time.strftime("%r") %> </td>
+      <td><%= link_to "#{playdate.date.strftime("%B %d, %Y")}", park_playdate_path(playdate)%></td> 
+      <td><%= playdate.time.strftime("%I:%M %P") %> </td>
       <td><%= playdate.user.username %></td>
       <td><%= playdate.user.family_size %></td>
     </tr>
-    <% end %>
   <% end %>
   </table>
   <br>
