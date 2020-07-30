@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_155628) do
   end
 
   create_table "playdates", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
+    t.datetime "date"
+    t.datetime "time"
     t.integer "park_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

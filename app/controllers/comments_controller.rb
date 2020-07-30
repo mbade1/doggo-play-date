@@ -1,9 +1,21 @@
 class CommentsController < ApplicationController
 
 
+
+  def current_park
+    if session[:park_id].present?
+      park = Park.find_by(:park_id => session[:park_id])
+    end
+  end
+
+  
   def create
-    @comment = Comment.create(comment_params)
-    if @comment
+    binding.pry
+    @comment = Comment.new(comment_params)
+    if @comment.save!
+      redirect_to park_path(@park)
+    else
+      render :'parks/new'
     end
   end
 

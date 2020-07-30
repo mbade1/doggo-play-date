@@ -13,7 +13,7 @@ class PlaydatesController < ApplicationController
     def create
         @playdate = Playdate.new(playdate_params)
         if @playdate.save!
-            redirect_to playdate_path(@playdate)
+            redirect_to park_path(@park)
         else
             render :new
         end
@@ -29,7 +29,7 @@ class PlaydatesController < ApplicationController
     private
 
     def playdate_params
-        params.permit(:playdate, :time, :date, :park_id, :user_id)
+        params.require(:playdate).permit(:time, :date, :user_id, :park_id)
     end
 
 end

@@ -1,7 +1,7 @@
 class Park < ApplicationRecord
     has_many :playdates
     has_many :comments
-    has_many :users, through: :comments #people who have commented on it
+    has_many :users, through: :comments 
     
     validates :name, presence: true
     validates :location, presence: true
