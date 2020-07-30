@@ -4,7 +4,7 @@
 <h3>Location of Park: <u><%= @park.location %></u><br>
 Types of Dogs that are allowed: <u><%= @park.hound %></u><br>
 Description of Park: <u><%= @park.description %></u></h3>
-
+<div class="parks-show-table">
 <% if @park.playdates.size > 0 %>
   <h3>PLAYDATES FOR THIS PARK:</h3>
   <table>
@@ -24,6 +24,7 @@ Description of Park: <u><%= @park.description %></u></h3>
     </tr>
   <% end %>
   </table>
+  </div>
   <br>
   Don't see a Playdate that works??
   <%= link_to "Add a New Play Date!", new_park_playdate_path(@park) %>

@@ -89,3 +89,18 @@ div.error_explanation {
 div.error_explanation h2 {
   color: red;
 }
+
+div.parks-show-table table {
+  margin-left:auto;
+  margin-right:auto;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+
+div.parks-show-table td, th {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
+  border: 2px solid black;
+}

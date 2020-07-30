@@ -7,3 +7,5 @@
 <% if @user.username == @playdate.user_id %>
 <%= link_to "Edit this Playdate", edit_playdate_path(@playdate) %>
 <% end %>
+
+<i>Click on the above park name to go back to <%= @park.name %></i>
