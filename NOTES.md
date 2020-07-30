@@ -1,16 +1,7 @@
-MORNING:
+FRIDAY
     - Add a comments to each Park
         - Reach out to coaches on these!!
     - Sort by method for order of play dates
-
-AFTERNOON:
     - Office Hours
     - OAuth linked with Facebook
 
-<%= form_for @comment do |f|%>
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :park_id, value: @park.id %>
-    <%= f.submit %>
-  <% end %>

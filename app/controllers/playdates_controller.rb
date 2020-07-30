@@ -15,7 +15,7 @@ class PlaydatesController < ApplicationController
         @park = Park.find_by(:id => params[:playdate][:park_id])
         if @playdate.save
             flash[:message] = "Your playdate has been added!"
-            redirect_to playdate_path(@playdate)
+            redirect_to park_path(@park)
         else
             render :new
         end
@@ -24,7 +24,7 @@ class PlaydatesController < ApplicationController
     def show
         @user = current_user
         @playdate = Playdate.find_by(:id => params[:id])
-        @park = Park.find_by(:id => params[:id])
+        @park = @playdate.park
     end
 
     def edit
