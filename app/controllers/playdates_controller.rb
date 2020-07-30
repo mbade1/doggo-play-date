@@ -12,7 +12,8 @@ class PlaydatesController < ApplicationController
 
     def create
         @playdate = Playdate.new(playdate_params)
-        if @playdate.save!
+        @park = Park.find_by(:id => params[:playdate][:park_id])
+        if @playdate.save
             redirect_to park_path(@park)
         else
             render :new
