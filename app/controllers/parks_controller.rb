@@ -20,6 +20,7 @@ class ParksController < ApplicationController
     def create
         @park = Park.new(park_params)
         if @park.save
+          flash[:message] = "Your park has been added!"
           redirect_to park_path(@park)
         else
           render :new
