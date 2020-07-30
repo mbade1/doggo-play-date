@@ -1,11 +1,9 @@
 <% if @park.errors.any? %>
-  <div id="error_explanation">
+  <div class="error_explanation">
     <h2>There were some errors:</h2>
-    <ul>
-      <% @park.errors.full_messages.each do |message| %>
-        <li><%= message %><li>
-      <% end %>
-    </ul>
+    <% @park.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
   </div>
 <% end %>
 
@@ -21,6 +19,6 @@
   <%= f.select :hound, raw("<option>Doggo</option><option>Pupper</option><option>All</option>") %><br /><br />
   <%= f.label :description %>
   <%= f.text_area :description %><br /><br />
-  <%= f.submit %>
+  <%= f.submit "Add a new Park"%>
 <% end %>
 </div>
