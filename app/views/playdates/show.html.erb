@@ -1,6 +1,7 @@
-<h1>Newest Playdate details for <%= @user.username %></h1> 
+<h1><%= @user.username.pluralize %> playdate details </h1> 
 
-<h3>Date: <%= @playdate.date.strftime("%B %d, %Y") %></h3>
-<h3>Time: <%= @playdate.time.strftime("%I:%M %P") %></h3>
+<h2>Park: <%= @park.name %></h2>
+<h2>Date: <%= @playdate.date.strftime("%B %d, %Y") %></h2>
+<h2>Time: <%= @playdate.time.strftime("%I:%M %P") %></h2>
 
 <%= link_to "Edit this Playdate", edit_playdate_path(@playdate) %>
