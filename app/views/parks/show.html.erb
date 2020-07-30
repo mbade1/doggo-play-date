@@ -42,12 +42,18 @@ Description of Park: <u><%= @park.description %></u></h3>
         <% end %>
       <% end %>
       </td>
-      <td><%= comment.created_at.strftime("%F %r") %></td>
+      <td><%= comment.created_at.strftime("%B %d, %Y %I:%M %P") %></td>
       <td><%= comment.comment %></td>
     </tr>
   <% end %>
 </table>
 <% end %>
+
+
+
+
+
+
 
   <div class="comment-container">
   <h4>Leave a comment about the park here</h4>
