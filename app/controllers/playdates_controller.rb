@@ -25,7 +25,16 @@ class PlaydatesController < ApplicationController
         @user = current_user
         @playdate = Playdate.find_by(:id => params[:id])
         @park = Park.find_by(:id => params[:id])
-        @users = User.all
+    end
+
+    def edit
+        @playdate = Playdate.find_by(params[:id])
+    end
+
+    def update
+        @playdate = Playdate.find_by(params[:id])
+        @playdate.update(playdate_params)
+        redirect_to playdate_path(@playdate)
     end
 
     private

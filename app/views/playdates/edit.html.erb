@@ -1,0 +1,11 @@
+<h1>Edit Playdate!</h1>
+
+<%= form_for @playdate do |f| %>
+    <%= f.label 'Date' %>
+    <%= f.date_field :date %><br><br>
+    <%= f.label 'Time' %>
+    <%= f.time_field :time %><br><br>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :park_id, value: @park%>
+    <%= f.submit "Update Playdate!" %>
+<% end %>
