@@ -12,9 +12,10 @@ Description of Park: <u><%= @park.description %></u></h3>
     <th>Time</th>
     <th>Playdate Host</th>
     <th>Host's Family Size</th>
-    <% current_date = current_date(@park.playdates)%>
-  <% sorted = sort_by_date(@park.playdates) %>
-  <% sorted.each do |playdate| %>
+  <%# future_dates = current_date(@park.playdates) %>
+  <%# sorted = sort_by_date(future_dates) %>
+  <%# sorted.each do |playdate| %>
+  <% @park.playdates.each do |playdate|%>
     <tr>
       <td><%= playdate.date.strftime("%B %d, %Y") %></td> 
       <td><%= playdate.time.strftime("%I:%M %P") %> </td>
