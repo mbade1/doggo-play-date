@@ -1,9 +1,12 @@
 <h3 style="color:red"><%= flash[:message] %></h3>
 
 <h1><%= @park.name %></h1>
-<h3>Location of Park: <u><%= @park.location %></u><br>
+<%= image_tag 'firehydrant.jpg' %>
+
+<h2>Location of Park: <u><%= @park.location %></u><br>
 Types of Dogs that are allowed: <u><%= @park.hound %></u><br>
-Description of Park: <u><%= @park.description %></u></h3>
+Description of Park: <u><%= @park.description %></u></h2>
+
 <div class="parks-show-table">
 <% if @park.playdates.size > 0 %>
   <h3>PLAYDATES FOR THIS PARK:</h3>
