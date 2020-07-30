@@ -49,13 +49,7 @@ Description of Park: <u><%= @park.description %></u></h3>
 </table>
 <% end %>
 
-
-
-
-
-
-
-  <div class="comment-container">
+<div class="comment-container">
   <h4>Leave a comment about the park here</h4>
     <%= form_tag "/parks/:park_id/comments", :id => 'comment-form', :method => :post do %>
     <%= text_field_tag "comment" %>
