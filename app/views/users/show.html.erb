@@ -5,7 +5,8 @@
   <th>Location</th>
   <th>Date</th>
   <th>Time</th>
-<% @user.playdates.each do |playdate| %>
+  <% sorted = sort_by_date @user.playdates %>
+<% sorted.each do |playdate| %>
     <tr>
       <td><%= link_to "#{playdate.park.name}", park_path(playdate.park) %></td>
       <td><%= playdate.date.strftime("%B %d, %Y") %></td>   
@@ -15,3 +16,4 @@
 </table>
 <br><br>
 <%= link_to "See Parks to set up more Doggo Playdates!", parks_path %>
+
