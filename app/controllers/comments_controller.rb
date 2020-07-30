@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 
+  def new
+    @comment = Comment.new
+    @park = Park.find_by(params[:park_id])
+  end 
 
 
   def current_park
@@ -10,9 +14,8 @@ class CommentsController < ApplicationController
 
   
   def create
-    binding.pry
     @comment = Comment.new(comment_params)
-    @park = Park.find_by(:id => params[:playdate][:park_id])
+    @park = Park.find_by(:id => params[:park_id])
     if @comment.save!
       redirect_to park_path(@park)
     else
