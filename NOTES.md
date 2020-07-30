@@ -1,5 +1,4 @@
 MORNING:
-    - Add a playdate to each park 
     - Add a comments to each Park
         - Reach out to coaches on these!!
     - Sort by method for order of play dates
