@@ -8,7 +8,7 @@
   <% sorted = sort_by_date @user.playdates %>
 <% sorted.each do |playdate| %>
     <tr>
-      <td><%= link_to "#{playdate.park.name}", playdate_path(playdate) %></td>
+      <td><%= link_to "#{playdate.park.name}", park_playdate_path(playdate) %></td>
       <td><%= playdate.date.strftime("%B %d, %Y") %></td>   
       <td><%= playdate.time.strftime("%I:%M %P") %></td>
     </tr>
