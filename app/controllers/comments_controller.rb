@@ -12,12 +12,11 @@ class CommentsController < ApplicationController
     end
   end
 
-  
   def create
     @comment = Comment.new(comment_params)
     @park = @comment.park
     if @comment.save!
-      flash[:message] = "Your comment has been added!"
+      flash[:message] = "Your review has been added!"
       redirect_to park_path(@park)
     else
       render :new

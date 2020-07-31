@@ -4,8 +4,8 @@
 <%= image_tag 'firehydrant.jpg' %>
 
 <h2>Location of Park: <u><%= @park.location %></u><br>
-Types of Dogs that are allowed: <u><%= @park.hound %></u><br>
-Description of Park: <u><%= @park.description %></u></h2>
+Dogs that are allowed: <u><%= @park.hound %></u><br>
+Park Description: <u><%= @park.description %></u></h2>
 
 <div class="parks-show-table">
 <% if @park.playdates.size > 0 %>
@@ -15,9 +15,6 @@ Description of Park: <u><%= @park.description %></u></h2>
     <th>Time</th>
     <th>Playdate Host</th>
     <th>Host's Family Size</th>
-  <%# future_dates = current_date(@park.playdates) %>
-  <%# sorted = sort_by_date(future_dates) %>
-  <%# sorted.each do |playdate| %>
   <% @park.playdates.each do |playdate|%>
     <tr>
       <td><%= link_to "#{playdate.date.strftime("%B %d, %Y")}", park_playdate_path(@park, playdate) %></td> 
@@ -37,45 +34,25 @@ Description of Park: <u><%= @park.description %></u></h2>
 <% end %>
 
 <br><br>
-<h2>Reviews about this park:</h2>
-<%if @park.comments.size > 0 %>
-<table>
-  <th>User</th>
-  <th>Date Created</th>
-  <th>Review</th>
-  <% @park.comments.each do |comment|%>
-    <tr>
-      <td><% @users.each do |user| %>
-        <% if comment.user_id == user.id%>
-         <% if comment.user_id == current_user.id%>
-          <%= link_to "#{user.username}", edit_park_comment_path(@park, comment) %>
+<h2>Reviews for this park:</h2>
+<% if @park.comments.size > 0 %>
+  <% @park.comments.each do |comment| %>
+    <% @users.each do |user| %>
+      <% if comment.user_id == user.id %>
+        <% if comment.user_id == current_user.id %>
+          <p><strong><%= user.username %> on <%= comment.updated_at.strftime("%B %d, %Y") %> said:</strong>
+          <br> <i>"<%= link_to "#{comment.comment}", edit_park_comment_path(@park, comment) %>"</i></p>
         <% else %>
-          <%= user.username %>
+          <p><strong><%= user.username %> on <%= comment.updated_at.strftime("%B %d, %Y") %> said:</strong>
+          <br> <i>"<%= comment.comment %>"</i></p>
         <% end %>
       <% end %>
-      <% end %>
-      </td>
-      <td>          
-          <%= comment.updated_at.strftime("%B %d, %Y at %I:%M %P") %>
-      </td>
-      <td>
-          <%= comment.comment %>
-      </td>
-    </tr>
+    <% end %> 
   <% end %>
-</table>
-<br>
-<i>Click on your username for the review you wish to update..</i>
-
 <% end %>
-  <h4><%= link_to "Leave a review about the park here", new_park_comment_path(@park) %> </h4>
-  
+<br>
 
-
-
-
-
-
+Click on the review you wish to update or <strong><%= link_to "leave a review about the park", new_park_comment_path(@park) %> </strong>
 
 
 <br><br>
