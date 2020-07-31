@@ -9,7 +9,7 @@ Description of Park: <u><%= @park.description %></u></h2>
 
 <div class="parks-show-table">
 <% if @park.playdates.size > 0 %>
-  <h3>PLAYDATES FOR THIS PARK:</h3>
+  <h3>Upcoming Playdates for <%= @park.name %></h3>
   <table>
     <th>Date</th>
     <th>Time</th>
@@ -37,7 +37,7 @@ Description of Park: <u><%= @park.description %></u></h2>
 <% end %>
 
 <br><br>
-<h3>Comments about this park:</h3>
+<h2>Comments about this park:</h2>
 <%if @park.comments.size > 0 %>
 <table>
   <th>User</th>

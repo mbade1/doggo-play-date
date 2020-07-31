@@ -25,11 +25,11 @@ class CommentsController < ApplicationController
 
 def edit
     @park = Park.find(params[:park_id])
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find_by(:id => params[:id])
 end
 
 def update
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find_by(:id => params[:id])
     if @comment.update(comment_params)
       @park = @comment.park
       flash[:message] = "Your comment has been updated!"
