@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   
   resources :parks do 
     resources :comments
-    resources :playdates, only: [:show, :index, :new]
+    resources :playdates, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
-  resources :playdates, only: [:index, :show, :create, :edit, :update, :destroy]
 
   resources :users, only: [:new, :create, :show]
 end

@@ -9,13 +9,13 @@
 
 <h1>Add a New Playdate!</h1>
 <div class="new-form-left">
-<%= form_for @playdate do |f| %>
+<%= form_for ([@park, @playdate]) do |f| %>
     <%= f.label :date %>
     <%= f.date_field :date %><br><br>
     <%= f.label :time %>
     <%= f.time_field :time %><br><br>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :park_id, value: @park%>
+    <%= f.hidden_field :park_id, value: @park.id%>
     <%= f.submit "Add Playdate!" %>
 <% end %>
 </div>

@@ -6,16 +6,16 @@ class PlaydatesController < ApplicationController
     end
     
     def new
-        @park = params[:park_id]
+        @park = Park.find(params[:park_id])
         @playdate = Playdate.new
     end
 
     def create
         @playdate = Playdate.new(playdate_params)
-        @park = Park.find_by(:id => params[:playdate][:park_id])
+        @park = @playdate.park
         if @playdate.save
             flash[:message] = "Your playdate has been added!"
-            redirect_to park_path(@park)
+            redirect_to park_playdate_path(@park, @playdate)
         else
             render :new
         end
