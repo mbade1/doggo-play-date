@@ -34,7 +34,17 @@ Park Description: <u><%= @park.description %></u></h2>
 <% end %>
 
 <br><br>
-<h2><%= @park.comments.size %> Reviews for this park, with an average of </h2>
+<h2><%= @park.comments.size %> 
+  Reviews for this park, with an average of 
+    <% total = 0 %>
+    <% @park.comments.each do |comment| %>
+      <% total += comment.park_review %>
+      <% @average = (total / @park.comments.size) %>
+    <% end %>
+    <%= @average %>
+  stars
+</h2>
+
 <% if @park.comments.size > 0 %>
   <% @park.comments.each do |comment| %>
     <% @users.each do |user| %>
