@@ -1,7 +1,18 @@
+<% if @comment.errors.any? %>
+  <div class="error_explanation">
+    <h2>There were some errors:</h2>
+    <% @comment.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
+  </div>
+<% end %>
+
 <h1>Leave a review for<br> <%= @park.name %>!</h1>
 <%= form_for ([@park, @comment]) do |f| %>
     <strong><%= f.label :comment, "Your Review" %></strong><br>
     <%= f.text_area :comment %><br><br>
+    <%= f.label :park_review %>
+    <%= f.select :park_review, raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %> Stars<br /><br />
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :park_id, value: @park.id%>
     <%= f.submit "Add Review!" %>

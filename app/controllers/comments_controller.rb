@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @park = @comment.park
-    if @comment.save!
+    if @comment.save
       flash[:message] = "Your review has been added!"
       redirect_to park_path(@park)
     else
@@ -47,6 +47,6 @@ end
 
   private
   def comment_params
-    params.require(:comment).permit(:comment, :park_id, :user_id)
+    params.require(:comment).permit(:comment, :park_id, :user_id, :park_review)
   end
 end

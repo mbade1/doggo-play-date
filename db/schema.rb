@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_155628) do
     t.string "comment"
     t.integer "park_id"
     t.integer "user_id"
+    t.integer "park_review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

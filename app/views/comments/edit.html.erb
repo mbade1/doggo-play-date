@@ -2,6 +2,8 @@
 <%= form_for ([@park, @comment]) do |f| %>
     <%= f.label :comment %>
     <%= f.text_area :comment %><br><br>
+    <%= f.label :park_review %>
+    <%= f.select :park_review, raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %> Stars<br /><br />
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :park_id, value: @park.id%>
     <%= f.submit "Update Review!" %>
