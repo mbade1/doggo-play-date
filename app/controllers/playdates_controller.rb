@@ -40,6 +40,14 @@ class PlaydatesController < ApplicationController
         redirect_to park_playdate_path(@park, @playdate)
     end
 
+    def destroy
+        @playdate = Playdate.find(params[:id]) 
+        @playdate.destroy
+        @park = Park.find_by(:id => params[:park_id])
+        flash[:message] = "Playdate has been deleted!"
+        redirect_to park_path(@park)
+      end
+
     private
 
     def playdate_params

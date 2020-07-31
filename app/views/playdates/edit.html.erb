@@ -9,3 +9,8 @@
     <%= f.hidden_field :park_id, value: @park.id%>
     <%= f.submit "Update Playdate!" %>
 <% end %>
+<br>
+<%= link_to "Delete Playdate", park_playdate_path(@park, @playdate), method: :delete, data: { confirm: "Are you sure?" } %><br>
+
+
+
