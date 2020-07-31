@@ -7,7 +7,6 @@ class ParksController < ApplicationController
 
     def show 
         @park = Park.find_by(:id => params[:id])
-        @playdates = @park.playdates
         @comments = Comment.all
         @comment = Comment.new
         @users = User.all
