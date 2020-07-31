@@ -1,6 +1,12 @@
 FRIDAY
-    - COMMENT DB: ADD RATING SYSTEM!!! - CHANGE FROM "COMMENT" TO "REVIEW" in Views
+    - OAuth linked with Facebook
+    - DB:
+        Comment: Add Rating System
+        Park: Change Location to Address?
     - Sort by method for order of play dates
     - Office Hours
-    - OAuth linked with Facebook
+    - Refactor:
+        Make new/edit partials for playdates and comments
+
+
 
