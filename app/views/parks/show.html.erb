@@ -48,11 +48,17 @@ Description of Park: <u><%= @park.description %></u></h2>
       <td><% @users.each do |user| %>
         <% if comment.user_id == user.id%>
           <%= user.username %>
+          
         <% end %>
       <% end %>
       </td>
       <td><%= comment.created_at.strftime("%B %d, %Y %I:%M %P") %></td>
-      <td><%= comment.comment %></td>
+      <td><%= comment.comment %>
+      <% if comment.user_id == current_user.id%>
+          <br>
+          <%= link_to "Edit Comment", edit_park_comment_path(@park, comment) %>
+      <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

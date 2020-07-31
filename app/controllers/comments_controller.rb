@@ -23,10 +23,18 @@ class CommentsController < ApplicationController
     end
   end
 
+# def edit
+#     @park = Park.find(params[:park_id])
+#     @playdate = Playdate.find_by(params[:id])
+# end
 
-
-
-
+# def update
+#     @playdate = Playdate.find_by(params[:id])
+#     @playdate.update(playdate_params)
+#     @park = @playdate.park
+#     flash[:message] = "Your playdate has been updated!"
+#     redirect_to park_playdate_path(@park, @playdate)
+# end
 
   private
   def comment_params
