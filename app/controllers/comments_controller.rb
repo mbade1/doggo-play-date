@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @park = Park.find_by(params[:park_id])
+    @park = Park.find_by(:id => params[:park_id])
   end 
 
 
@@ -15,16 +15,21 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.new(comment_params)
-    @park = Park.find_by(:id => params[:park_id])
+    @park = @comment.park
     if @comment.save!
       redirect_to park_path(@park)
     else
-      render :'parks/new'
+      render :new
     end
   end
 
+
+
+
+
+
   private
   def comment_params
-    params.permit(:comment, :park_id, :user_id)
+    params.require(:comment).permit(:comment, :park_id, :user_id)
   end
 end
