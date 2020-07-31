@@ -1,10 +1,10 @@
-<h1>Edit your review for<br> <%= @park.name %>!</h1>
+<h1>Update your review for<br> <%= @park.name %>!</h1>
 <%= form_for ([@park, @comment]) do |f| %>
     <%= f.label :comment %>
     <%= f.text_area :comment %><br><br>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :park_id, value: @park.id%>
-    <%= f.submit "Edit Review!" %>
+    <%= f.submit "Update Review!" %>
 <% end %>
 <br>
 <%= link_to "Delete Comment", park_comment_path(@park, @comment), method: :delete, data: { confirm: "Are you sure you want to delete this comment?" } %><br>
