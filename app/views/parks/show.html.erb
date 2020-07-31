@@ -37,12 +37,12 @@ Description of Park: <u><%= @park.description %></u></h2>
 <% end %>
 
 <br><br>
-<h2>Comments about this park:</h2>
+<h2>Reviews about this park:</h2>
 <%if @park.comments.size > 0 %>
 <table>
   <th>User</th>
   <th>Date Created</th>
-  <th>Comment</th>
+  <th>Review</th>
   <% @park.comments.each do |comment|%>
     <tr>
       <td><% @users.each do |user| %>
@@ -52,19 +52,22 @@ Description of Park: <u><%= @park.description %></u></h2>
         <% end %>
       <% end %>
       </td>
-      <td><%= comment.created_at.strftime("%B %d, %Y %I:%M %P") %></td>
-      <td><%= comment.comment %>
-      <% if comment.user_id == current_user.id%>
-          <br>
-          <%= link_to "Edit Comment", edit_park_comment_path(@park, comment) %>
-      <% end %>
+      <td><%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %></td>
+      <td>
+        <% if comment.user_id == current_user.id%>
+          <%= link_to "#{comment.comment}", edit_park_comment_path(@park, comment) %>
+        <% else %>
+          <%= comment.comment %>
+        <% end %>
       </td>
     </tr>
   <% end %>
 </table>
-<% end %>
+<br>
+<i>To edit one of your reviews, click on the review itself</i>
 
-  <h4><%= link_to "Leave a comment about the park here", new_park_comment_path(@park) %> </h4>
+<% end %>
+  <h4><%= link_to "Leave a review about the park here", new_park_comment_path(@park) %> </h4>
   
 
 
