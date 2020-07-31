@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/session' => 'sessions#destroy'
   post '/parks/:park_id/playdates/new' => 'playdates#create'
+  get '/auth/facebook/callback' => 'sessions#facebook_login'
+
 
   
   resources :parks do 

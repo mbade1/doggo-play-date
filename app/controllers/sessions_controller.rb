@@ -13,10 +13,20 @@ class SessionsController < ApplicationController
         @user.save
         session[:user_id] = @user.id
         redirect_to user_path(current_user.id)
-    else
+      else
         flash.now[:message] = "Please fill in all fields correctly."
         render :new
+      end
     end
+
+
+  def facebook_login
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.username = auth['info']['name']
+    end
+    session[:user_id] = @user.id
+
+    render :'users/show'
   end
 
   def destroy
@@ -25,5 +35,12 @@ class SessionsController < ApplicationController
       redirect_to root_url
     end
   end
+
+  private
+ 
+  def auth
+    request.env['omniauth.auth']
+  end
+
 
 end

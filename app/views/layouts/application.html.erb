@@ -14,14 +14,15 @@
   <div id="nav">
     <ul>
       <li><a class="navbar" href="<%= root_url %>">Home</a></li>
-      <li><a class="navbar" href="<%= parks_path %>">Austin Dog Parks</a></li>
 
       <% if !current_user %>
         <li><a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a></li>
         <li><%= link_to "Log in", login_path, class:"navbar-brand" %></li>
+        <li><%= link_to('Log in with Facebook!', '/auth/facebook') %></li>
       <% end %>
       <% if current_user %>
         <li><%= link_to "#{current_user.username}'s profile", user_path(current_user), class:"navbar-brand"%></li>
+        <li><a class="navbar" href="<%= parks_path %>">Dog Parks in Austin</a></li>
         <li><%= link_to "Log Out", session_path, class:"navbar-brand", method:'delete' %></li>
       <% end %>
   </div>

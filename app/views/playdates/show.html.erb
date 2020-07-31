@@ -1,6 +1,5 @@
 <h3 style="color:red"><%= flash[:message] %></h3>
 
-
 <h1><%= @user %>'s Playdate details </h1> 
 <%= image_tag 'groupofdogs.jpg' %>
 <h2>Park: <%= link_to "#{@playdate.park.name}", park_path(@playdate.park) %></h2>
