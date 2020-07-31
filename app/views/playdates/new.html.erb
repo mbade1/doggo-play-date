@@ -1,16 +1,4 @@
-<% if @playdate.errors.any? %>
-  <div class="error_explanation">
-    <h2>There were some errors:</h2>
-    <% @playdate.errors.full_messages.each do |message| %>
-      <%= message %><br>
-    <% end %>
-  </div>
-<% end %>
-
 <h1>Add a New Playdate!</h1>
-<div class="new-form-left">
 <%= render 'form'%>
-
-</div>
 
 
