@@ -1,21 +1,22 @@
 <h1>Welcome, <%= @user.username %>!</h1>
-
+<% if @user.playdates.size > 0 %>
 <h3>Doggo Playdates <%= @user.username %> is hosting: </h3>
 <table>
   <th>Location</th>
   <th>Playdate</th>
   <th>Time</th>
   <% sorted = sort_by_date @user.playdates %>
-<% sorted.each do |playdate| %>
-    <tr>
-      <td><%= link_to "#{playdate.park.name}", park_path(playdate.park) %></td>
-      <td><%= link_to "#{playdate.date.strftime("%B %d, %Y")}", park_playdate_path(playdate.park, playdate) %></td>   
-      <td><%= playdate.time.strftime("%I:%M %P") %></td>
-    </tr>
+    <% sorted.each do |playdate| %>
+      <tr>
+        <td><%= link_to "#{playdate.park.name}", park_path(playdate.park) %></td>
+        <td><%= link_to "#{playdate.date.strftime("%B %d, %Y")}", park_playdate_path(playdate.park, playdate) %></td>   
+        <td><%= playdate.time.strftime("%I:%M %P") %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+  <i>Click on the <strong>Location</strong> to go to that Playdate's Location</i><br><br>
+  <i>Click on the <strong>Playdate</strong> to go to that specific Playdate</i>
+  <% else %>
+    <i>Oh no! You're not hosting any Doggo Play Dates! <br><br>Click on Austin Dog Parks above to set up Doggo Play Dates!</i>
 <% end %>
-</table>
-<br>
-<i>Click on the Location to go to that Playdate's Location</i><br><br>
-<i>Click on the Playdate to go to that specific Playdate</i>
-<br><br>
-

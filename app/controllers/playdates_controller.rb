@@ -24,11 +24,11 @@ class PlaydatesController < ApplicationController
     def show
         @playdate = Playdate.find_by(:id => params[:id])
         @user = @playdate.user.username
-
+        @park = Park.find_by(:id => params[:park_id])
     end
 
     def edit
-        @park = Park.find(params[:park_id])
+        @park = Park.find_by(:id => params[:park_id])
         @playdate = Playdate.find_by(params[:id])
     end
 

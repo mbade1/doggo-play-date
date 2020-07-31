@@ -7,7 +7,7 @@
 <h2>Date: <%= @playdate.date.strftime("%B %d, %Y") %></h2>
 <h2>Time: <%= @playdate.time.strftime("%I:%M %P") %></h2>
 <% if current_user.id == @playdate.user_id %>
-<%= link_to "Update or Delete this Playdate", edit_park_playdate_path(@playdate) %><br><br>
+<%= link_to "Update or Delete this Playdate", edit_park_playdate_path(@park, @playdate) %><br><br>
 <% end %>
 
 <i>Click on the above park name to go back to <%= @playdate.park.name %></i>
