@@ -38,6 +38,14 @@ def update
     end
 end
 
+def destroy
+  @comment = Comment.find_by(:id => params[:id]) 
+  @comment.destroy
+  @park = Park.find_by(:id => params[:park_id])
+  flash[:message] = "Playdate has been deleted!"
+  redirect_to park_path(@park)
+end
+
   private
   def comment_params
     params.require(:comment).permit(:comment, :park_id, :user_id)

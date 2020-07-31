@@ -38,10 +38,10 @@ class PlaydatesController < ApplicationController
         @park = @playdate.park
         flash[:message] = "Your playdate has been updated!"
         redirect_to park_playdate_path(@park, @playdate)
-    end
+    end    
 
     def destroy
-        @playdate = Playdate.find(params[:id]) 
+        @playdate = Playdate.find_by(:id => params[:id]) 
         @playdate.destroy
         @park = Park.find_by(:id => params[:park_id])
         flash[:message] = "Playdate has been deleted!"
