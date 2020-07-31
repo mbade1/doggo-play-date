@@ -28,14 +28,16 @@ class PlaydatesController < ApplicationController
     end
 
     def edit
+        @park = Park.find(params[:park_id])
         @playdate = Playdate.find_by(params[:id])
     end
 
     def update
         @playdate = Playdate.find_by(params[:id])
         @playdate.update(playdate_params)
-        flash[:message] = ""
-        redirect_to playdate_path(@playdate)
+        @park = @playdate.park
+        flash[:message] = "Your playdate has been updated!"
+        redirect_to park_playdate_path(@park, @playdate)
     end
 
     private
