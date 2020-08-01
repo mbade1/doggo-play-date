@@ -1,0 +1,9 @@
+<h1>Update <%= current_user.username %>'s family size!</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :family_size %>
+  <%= f.select :family_size, raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %><br /><br />
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :password, value: current_user.password_digest %>
+  <%= f.submit "Update Family Size"%>
+  <% end %>
