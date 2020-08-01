@@ -19,14 +19,15 @@ class SessionsController < ApplicationController
       end
     end
 
-
   def facebook_login
     @user = User.find_or_create_by(uid: auth['uid']) do |u|
       u.username = auth['info']['name']
+      u.uid = auth['uid']
+      u.password = 'Temporary'
+      u.family_size = 2
     end
     session[:user_id] = @user.id
-
-    render :'users/show'
+    redirect_to user_path(current_user)
   end
 
   def destroy

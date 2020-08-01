@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   delete '/session' => 'sessions#destroy'
   post '/parks/:park_id/playdates/new' => 'playdates#create'
   get '/auth/facebook/callback' => 'sessions#facebook_login'
-
-
   
   resources :parks do 
     resources :comments
     resources :playdates, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit, :update]
 end

@@ -1,8 +1,7 @@
 FRIDAY
     - OAuth linked with Facebook
+        - def facebook_login method in SessionsController...
     - Sort by method for order of play dates
-    - Refactor:
-        Make new/edit partials for playdates and comments
 
 
 

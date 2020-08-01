@@ -1,4 +1,6 @@
 <h1>Welcome, <%= @user.username %>!</h1>
+<h3>Your family size is: <%= @user.family_size %></h3>
+<p><i>To change your family size, click <%= link_to "here", edit_user_path(current_user) %></i></p>
 <% if @user.playdates.size > 0 %>
 <h3>Doggo Playdates <%= @user.username %> is hosting: </h3>
 <table>
