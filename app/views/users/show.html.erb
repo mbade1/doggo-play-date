@@ -1,6 +1,9 @@
 <h1>Welcome, <%= @user.username %>!</h1>
-<h3>Your family size is: <%= @user.family_size %></h3>
-<p><i>To change your family size, click <%= link_to "here", edit_user_path(current_user) %></i></p>
+<h2>Your family size is: <%= @user.family_size %></h2>
+<p><i>If you logged in with Facebook, your family size is set to 2 family members (you + your doggo). <br>
+To change your family size, <%= link_to "click here.", edit_user_path(current_user) %></i></p>
+<br>
+
 <% if @user.playdates.size > 0 %>
 <h3>Doggo Playdates <%= @user.username %> is hosting: </h3>
 <table>
