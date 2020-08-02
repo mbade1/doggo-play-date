@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(:id => params[:id]) 
     @comment.destroy
     @park = Park.find_by(:id => params[:park_id])
-    flash[:message] = "Comment has been deleted!"
+    flash[:message] = "Your review has been deleted!"
     redirect_to park_path(@park)
   end
 
