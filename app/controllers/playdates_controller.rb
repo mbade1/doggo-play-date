@@ -29,7 +29,7 @@ class PlaydatesController < ApplicationController
 
   def edit
     @park = Park.find_by(:id => params[:park_id])
-    @playdate = Playdate.find_by(params[:id])
+    @playdate = Playdate.find_by(:id => params[:id])
   end
 
   def update
