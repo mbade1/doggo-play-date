@@ -19,16 +19,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def update
-    @user = User.find_by(:id => params[:id])
-    if @user.update(user_params)
-      flash[:message] = "Your family size has been updated!"
-      redirect_to user_path(current_user)
-    else
-      render :edit
-    end
-  end
-
   def show
     @user = User.find_by(:id => params[:id])      
   end
@@ -39,4 +29,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :family_size)
   end
 
+  def family_params
+    params.require(:user).permit(:username, :password, :family_size)
+  end
 end

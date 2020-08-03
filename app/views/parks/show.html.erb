@@ -1,7 +1,7 @@
 <h3 style="color:red"><%= flash[:message] %></h3>
 
 <h1><%= @park.name %></h1>
-<% if @park.comments.size > 0 %>
+<% if @park.comments.exists? %>
   <h2><%= pluralize(@park.comments.size, "Review") %> for this park, with an average of 
   <% total = 0 %>
   <% @park.comments.each do |comment| %>
@@ -18,7 +18,7 @@ Dogs that are allowed: <u><%= @park.hound %></u><br>
 Park Description: <u><%= @park.description %></u></h2>
 
 <div class="parks-show-table">
-<% if @park.playdates.size > 0 %>
+<% if @park.playdates.exists? %>
   <h3>Upcoming Playdates for <%= @park.name %></h3>
   <table>
     <th>Date</th>
