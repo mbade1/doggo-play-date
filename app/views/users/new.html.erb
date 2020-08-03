@@ -10,13 +10,13 @@
 <h1>Sign up</h1>
 
 <%= form_for(@user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %><br><br>
-    <%= f.label :family_size %>
-    <%= f.select :family_size, raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %><br /><br />
-    <%= f.label :password %>
-    <%= f.password_field :password %><br><br>
-    <%= f.submit "Sign Up"%>
+  <%= f.label :username %>
+  <%= f.text_field :username %><br><br>
+  <%= f.label :family_size %>
+  <%= f.select :family_size, raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %><br /><br />
+  <%= f.label :password %>
+  <%= f.password_field :password %><br><br>
+  <%= f.submit "Sign Up"%>
 <% end %>
 <br>
 <i>Due to Covid-19, family sizes can not exceed 5 family members</i>

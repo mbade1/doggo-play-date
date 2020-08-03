@@ -7,12 +7,12 @@ Unfortunately, this can not be changed right now.
 <br>
 
 <% if @user.playdates.exists? %>
-<h3>Doggo Playdates <%= @user.username %> is hosting: </h3>
-<table>
-  <th>Location</th>
-  <th>Playdate</th>
-  <th>Time</th>
-  <% sorted = sort_by_date @user.playdates %>
+  <h3>Doggo Playdates <%= @user.username %> is hosting: </h3>
+  <table>
+    <th>Location</th>
+    <th>Playdate</th>
+    <th>Time</th>
+    <% sorted = sort_by_date @user.playdates %>
     <% sorted.each do |playdate| %>
       <tr>
         <td><%= link_to "#{playdate.park.name}", park_path(playdate.park) %></td>
@@ -24,6 +24,6 @@ Unfortunately, this can not be changed right now.
   <br>
   <i>Click on the <strong>Location</strong> to go to that Playdate's Location</i><br><br>
   <i>Click on the <strong>Playdate</strong> to go to that specific Playdate</i>
-  <% else %>
+<% else %>
     <i>Oh no! You're not hosting any Doggo Play Dates! <br><br>Click on Austin Dog Parks above to set up Doggo Play Dates!</i>
 <% end %>
