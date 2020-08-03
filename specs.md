@@ -17,14 +17,22 @@ Specs:
         Users has_many :comments, through: :parks
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+        All models include validations for each attribute
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup
+        Signup uses sessions and validations
 - [x] Include login
+        Signup uses sessions and validations
 - [x] Include logout
+        Logout destroys current session
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
+        Facebook login link
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
+        comments and playdates are nested under parks
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+        comments and playdates have nested new forms (parks/1/playdates/new || parks/1/comments/new )
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
+        All new forms have validation errors included.
 
 Confirm:
 - [x] The application is pretty DRY
