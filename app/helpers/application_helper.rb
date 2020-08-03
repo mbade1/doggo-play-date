@@ -1,8 +1,6 @@
 module ApplicationHelper
-  def sort_by_date(dates)
-    dates.sort do |a, b| 
-      a <=> b
-    end
+  def sorted(dates)
+    dates.sort_by{|d| d.date}
   end
     
   def current_date(dates)

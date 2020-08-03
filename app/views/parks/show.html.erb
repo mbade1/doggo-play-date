@@ -27,12 +27,14 @@ Park Description: <u><%= @park.description %></u></h2>
     <th>Host's Family Size</th>
     <% sorted = @park.playdates.sort_by{|d| d.date} %>
     <% sorted.each do |playdate|%>
+      <% if playdate.date.future?%>
       <tr>
-        <td><%= link_to "#{playdate.date.strftime("%B %d, %Y")}", park_playdate_path(@park, playdate) %></td> 
+        <td><%= link_to "#{playdate.date.strftime("%B %d,%Y")}", park_playdate_path(@park, playdate) %></td> 
         <td><%= playdate.time.strftime("%I:%M %P") %> </td>
         <td><%= playdate.user.username %></td>
         <td><%= playdate.user.family_size %></td>
       </tr>
+      <% end %>
   <% end %>
   </table>
   </div>

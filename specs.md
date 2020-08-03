@@ -10,11 +10,11 @@ Specs:
         Playdate belongs_to park
         Playdate belongs_to user
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
-        Playdate has_many users, through comments
-        Users has_many commented_playdates, through: :parks, source: playdate
+        Park has_many :users, through: :comments 
+        Users has_many :comments, through: :parks
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-        Comments has_many :users, through: :parks, source: :playdate
-        Users has_many :commented_playdates, through: :parks, source: :playdates
+        Comments has_many :users, through: :parks
+        Users has_many :comments, through: :parks
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
@@ -27,7 +27,7 @@ Specs:
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] Views use partials if appropriate
