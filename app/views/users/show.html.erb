@@ -1,31 +1,7 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 <h2>Your family size is: <%= @user.family_size %></h2>
 <p><i>If you logged in with Facebook, your family size is set to 2 family members (you + your doggo). <br>
-Unfortunately, this can not be changed right now.
+Unfortunately, this can not be changed right now.</i></p>
 <!--User#Edit - see view explanation: "To change your family size, <%= link_to "click here.", edit_user_path(current_user) %>" -->
-</i></p>
 <br>
-
-<% if @user.playdates.exists? %>
-  <h3>Doggo Playdates <%= @user.username %> is hosting: </h3>
-  <table>
-    <th>Location</th>
-    <th>Playdate</th>
-    <th>Time</th>
-    <% sorted = @user.playdates.sort_by{|d| d.date} %>
-    <% sorted.each do |playdate| %>
-      <% if playdate.date.future?%>
-      <tr>
-        <td><%= link_to "#{playdate.park.name}", park_path(playdate.park) %></td>
-        <td><%= link_to "#{playdate.date.strftime("%B %d, %Y")}", park_playdate_path(playdate.park, playdate) %></td>   
-        <td><%= playdate.time.strftime("%I:%M %P") %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </table>
-  <br>
-  <i>Click on the <strong>Location</strong> to go to that Playdate's Location</i><br><br>
-  <i>Click on the <strong>Playdate</strong> to go to that specific Playdate</i>
-<% else %>
-    <i>Oh no! You're not hosting any Doggo Play Dates! <br><br>Click on Austin Dog Parks above to set up Doggo Play Dates!</i>
-<% end %>
+<%= render 'user_show_playdates'%>
