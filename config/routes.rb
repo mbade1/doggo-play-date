@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   post '/parks/:park_id/playdates/new' => 'playdates#create'
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   
-  resources :parks do 
-    resources :comments
-    resources :playdates, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :parks  do 
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :playdates, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
   resources :users, only: [:new, :create, :show, :edit, :update]
