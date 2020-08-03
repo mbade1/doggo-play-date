@@ -1,18 +1,20 @@
 class SessionsController < ApplicationController
 
-    def welcome 
-    end
+  def welcome 
+  end
     
-    def new    
-      @user = User.new  
-    end
+  def new    
+    @user = User.new  
+  end
     
     def create
-      @user = User.find_by!(:username => params[:username])
+      @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
+        @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to user_path(current_user.id)
       else
+        flash.now[:message] = "Please fill in all fields correctly."
         render :new
       end
     end
@@ -24,8 +26,8 @@ class SessionsController < ApplicationController
       u.password = 'Temporary'
       u.family_size = 2
     end
-    session[:user] = @user
-    redirect_to user_path(@user)
+    session[:user_id] = @user.id
+    redirect_to user_path(current_user)
   end
 
   def destroy

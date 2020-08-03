@@ -13,8 +13,10 @@
     <%= f.label :username %>
     <%= f.text_field :username %><br><br>
     <%= f.label :family_size %>
-    <%= f.number_field :family_size %><br><br>
+    <%= f.select :family_size, raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %><br /><br />
     <%= f.label :password %>
     <%= f.password_field :password %><br><br>
     <%= f.submit "Sign Up"%>
 <% end %>
+<br>
+<i>Due to Covid-19, family sizes can not exceed 5 family members</i>
