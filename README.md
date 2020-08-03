@@ -4,7 +4,7 @@ Hello and welcome to the Doggo Playdate App! After logging in via the web app or
 ## Installation
 To use this app, just clone this [repo](https://github.com/mbade1/doggo-play-date).
 Then execute:
-    $ bundle
+    ```$ bundle```
 
 ## Usage
 
