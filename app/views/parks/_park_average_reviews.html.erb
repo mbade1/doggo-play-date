@@ -1,0 +1,10 @@
+<% if @park.comments.exists? %>
+  <h2><%= pluralize(@park.comments.size, "Review") %> for this park, with an average of 
+  <% total = 0 %>
+  <% @park.comments.each do |comment| %>
+    <% total += comment.park_review %>
+    <% @average = (total / @park.comments.size) %>
+  <% end %>
+  <%= pluralize(@average, "star") %>
+  </h2>
+<% end %>

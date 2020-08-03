@@ -1,74 +1,16 @@
 <h3 style="color:red"><%= flash[:message] %></h3>
 
 <h1><%= @park.name %></h1>
-<% if @park.comments.exists? %>
-  <h2><%= pluralize(@park.comments.size, "Review") %> for this park, with an average of 
-  <% total = 0 %>
-  <% @park.comments.each do |comment| %>
-    <% total += comment.park_review %>
-    <% @average = (total / @park.comments.size) %>
-  <% end %>
-  <%= pluralize(@average, "star") %>
-  </h2>
-<% end %>
+<%= render 'park_average_reviews'%>
 <%= image_tag 'firehydrant.jpg' %>
 
 <h2>Location of Park: <u><%= @park.location %></u><br>
 Dogs that are allowed: <u><%= @park.hound %></u><br>
 Park Description: <u><%= @park.description %></u></h2>
 
-<div class="parks-show-table">
-<% if @park.playdates.exists? %>
-  <h3>Upcoming Playdates for <%= @park.name %></h3>
-  <table>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Playdate Host</th>
-    <th>Host's Family Size</th>
-    <% sorted = @park.playdates.sort_by{|d| d.date} %>
-    <% sorted.each do |playdate|%>
-      <% if playdate.date.future?%>
-      <tr>
-        <td><%= link_to "#{playdate.date.strftime("%B %d,%Y")}", park_playdate_path(@park, playdate) %></td> 
-        <td><%= playdate.time.strftime("%I:%M %P") %> </td>
-        <td><%= playdate.user.username %></td>
-        <td><%= playdate.user.family_size %></td>
-      </tr>
-      <% end %>
-  <% end %>
-  </table>
-  </div>
-  <br>
-  Click on a Playdate to Change or Delete it!<br>
-  Don't see a Playdate that works??
-  <%= link_to "Add a New Play Date!", new_park_playdate_path(@park) %>
-<% else %>
-  <h3>No Playdates have been created!</h3>
-  <%= link_to "Add a New Play Date!", new_park_playdate_path(@park) %>
-<% end %>
-
+<%= render 'park_playdates_table'%>
 <br><br>
-
-<% if @park.comments.size > 0 %>
-  <% @park.comments.each do |comment| %>
-    <% @users.each do |user| %>
-      <% if comment.user_id == user.id %>
-        <% if comment.user_id == current_user.id %>
-          <p><strong><%= user.username %>'s <u><%= comment.park_review %> star review</u> on <%= comment.updated_at.strftime("%B %d, %Y") %> said:</strong>
-          <br> <i>"<%= link_to "#{comment.comment}", edit_park_comment_path(@park, comment) %>"</i>
-          </p>
-        <% else %>
-          <p><strong><%= user.username %>'s <u><%= comment.park_review %> star review</u> on <%= comment.updated_at.strftime("%B %d, %Y") %> said:</strong>
-          <br> <i>"<%= comment.comment %>"</i><br>
-          </p>
-        <% end %>
-      <% end %>
-    <% end %> 
-  <% end %>
-  Click on the review you wish to update or <%= link_to "leave a review about the park", new_park_comment_path(@park) %>
-<% else %>
-  <%= link_to "Create a review for this park!", new_park_comment_path(@park) %>
-<% end %>
+<%= render 'park_reviews' %>
 
 <br><br><br>
 <p>Take a look at Austin's Dog Parks!</p>

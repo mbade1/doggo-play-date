@@ -1,0 +1,20 @@
+<% if @park.comments.size > 0 %>
+  <% @park.comments.each do |comment| %>
+    <% @users.each do |user| %>
+      <% if comment.user_id == user.id %>
+        <% if comment.user_id == current_user.id %>
+          <p><strong><%= user.username %>'s <u><%= comment.park_review %> star review</u> on <%= comment.updated_at.strftime("%B %d, %Y") %> said:</strong>
+          <br> <i>"<%= link_to "#{comment.comment}", edit_park_comment_path(@park, comment) %>"</i>
+          </p>
+        <% else %>
+          <p><strong><%= user.username %>'s <u><%= comment.park_review %> star review</u> on <%= comment.updated_at.strftime("%B %d, %Y") %> said:</strong>
+          <br> <i>"<%= comment.comment %>"</i><br>
+          </p>
+        <% end %>
+      <% end %>
+    <% end %> 
+  <% end %>
+  Click on the review you wish to update or <%= link_to "leave a review about the park", new_park_comment_path(@park) %>
+<% else %>
+  <%= link_to "Create a review for this park!", new_park_comment_path(@park) %>
+<% end %>

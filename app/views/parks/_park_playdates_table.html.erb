@@ -1,0 +1,29 @@
+<div class="parks-show-table">
+<% if @park.playdates.exists? %>
+  <h3>Upcoming Playdates for <%= @park.name %></h3>
+  <table>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Playdate Host</th>
+    <th>Host's Family Size</th>
+    <% sorted = @park.playdates.sort_by{|d| d.date} %>
+    <% sorted.each do |playdate|%>
+      <% if playdate.date.future?%>
+      <tr>
+        <td><%= link_to "#{playdate.date.strftime("%B %d,%Y")}", park_playdate_path(@park, playdate) %></td> 
+        <td><%= playdate.time.strftime("%I:%M %P") %> </td>
+        <td><%= playdate.user.username %></td>
+        <td><%= playdate.user.family_size %></td>
+      </tr>
+      <% end %>
+  <% end %>
+  </table>
+  </div>
+  <br>
+  Click on a Playdate to Change or Delete it!<br>
+  Don't see a Playdate that works??
+  <%= link_to "Add a New Play Date!", new_park_playdate_path(@park) %>
+<% else %>
+  <h3>No Playdates have been created!</h3>
+  <%= link_to "Add a New Play Date!", new_park_playdate_path(@park) %>
+<% end %>
