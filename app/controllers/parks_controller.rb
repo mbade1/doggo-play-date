@@ -32,3 +32,4 @@ class ParksController < ApplicationController
         params.require(:park).permit(:name, :location, :hound, :description)
     end
 end
+
