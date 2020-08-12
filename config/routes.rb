@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   delete '/session' => 'sessions#destroy'
-  post '/parks/:park_id/playdates/new' => 'playdates#create'
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   
   resources :parks  do 

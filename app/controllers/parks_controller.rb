@@ -8,7 +8,6 @@ class ParksController < ApplicationController
   def show 
     @park = Park.find_by(:id => params[:id])
     @comments = Comment.all
-    @comment = Comment.new
     @users = User.all
   end
 
