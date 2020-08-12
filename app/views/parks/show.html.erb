@@ -1,15 +1,16 @@
 <h3 style="color:red"><%= flash[:message] %></h3>
 
 <h1><%= @park.name %></h1>
+
 <%= render 'park_average_reviews'%>
 <%= image_tag 'firehydrant.jpg' %>
 
 <h2>Location of Park: <u><%= @park.location %></u><br>
 Dogs that are allowed: <u><%= @park.hound %></u><br>
 Park Description: <u><%= @park.description %></u></h2>
-
+<br>
 <%= render 'park_playdates_table'%>
-<br><br>
+<br><br><br>
 <%= render 'park_reviews' %>
 
 <br>
