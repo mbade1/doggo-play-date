@@ -1,0 +1,28 @@
+<h1>Playdates for <%= @display_day %>!</h1>
+<%= form_tag("/playdates/today", method: "post", :id => "get-day") do %>
+<%= date_field_tag :date %>
+<%= submit_tag "View another Date" %>
+<% end %>
+<br>
+<% if @day.exists? %>
+  <table>
+    <th>Time</th>
+    <th>Playdate Host</th>
+    <th>Park Name</th>
+    <th>Host's Family Size</th>
+  <% @day.each do |date|%>
+  <tr>
+    <td><%= link_to  "#{date.time.strftime("%I:%M %P")}", park_playdate_path(date.park_id, date.id) %></td>
+    <td><%= date.user.username %></td>
+    <td><%= date.park.name %></td>
+    <td><%= date.user.family_size %></td>
+  </tr>
+  <% end%>
+</table>
+<p><i>To view a playdate individually, click on the playdate's <strong>Time</strong> above</i></p>
+<% else %>
+  <p>Oh no! There are no playdates for your selected day!</p>
+  <p>Find a park above to make a playdate for your selected day!</p>
+<% end %>
+<br>
+<%= link_to "Click here to go back to your profile", user_path(current_user) %>

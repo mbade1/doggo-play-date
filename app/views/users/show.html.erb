@@ -4,4 +4,10 @@
 Unfortunately, this can not be changed right now.</i></p>
 <!--User#Edit - see view explanation: "To change your family size, <%= link_to "click here.", edit_user_path(current_user) %>" -->
 <br>
+<h4>See Playdates for Today!</h4>
+<%= form_tag("/playdates/today", method: "post", :id => "get-day") do %>
+<%= date_field_tag :date %>
+<%= submit_tag "Show playdates for selected Date" %>
+<% end %>
+<br>
 <%= render 'user_show_playdates'%>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/session' => 'sessions#destroy'
   get '/auth/facebook/callback' => 'sessions#facebook_login'
+  post '/playdates/today', to: "playdates#today"
+  get '/playdates/todays_playdates', to: "playdates#todays_playdates"
   
   resources :parks  do 
     resources :comments, only: [:new, :create, :edit, :update, :destroy]

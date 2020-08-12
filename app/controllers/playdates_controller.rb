@@ -1,4 +1,13 @@
 class PlaydatesController < ApplicationController
+  def today
+    @display_day = params[:date]
+    @day = Playdate.current_date(@display_day)
+    render :todays_playdates
+  end
+
+  def todays_playdates
+  end
+
 
   def index
     @parks = Park.all
