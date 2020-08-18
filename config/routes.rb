@@ -8,12 +8,10 @@ Rails.application.routes.draw do
   delete '/session' => 'sessions#destroy'
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   post '/playdates/today', to: "playdates#today"
-  get '/playdates/todays_playdates', to: "playdates#todays_playdates"
   
   resources :parks  do 
     resources :comments, only: [:new, :create, :edit, :update, :destroy]    
-    resources :playdates, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :playdates, only: [:index, :new, :create, :show, :edit, :update, :destroy] 
   end
-
-  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :users, only: [:new, :create, :show, :edit]    #new, create, edit, show
 end

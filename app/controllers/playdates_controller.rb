@@ -4,11 +4,7 @@ class PlaydatesController < ApplicationController
     @day = Playdate.current_date(@display_day)
     render :todays_playdates
   end
-
-  def todays_playdates
-  end
-
-
+  
   def index
     @parks = Park.all
     @playdate = Playdate.all
