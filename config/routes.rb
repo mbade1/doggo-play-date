@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/playdates/todays_playdates', to: "playdates#todays_playdates"
   
   resources :parks  do 
-    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]    
     resources :playdates, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
