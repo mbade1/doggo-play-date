@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   post '/playdates/dates', to: "playdates#dates"
   
+  #five star review route
+  post '/parks/five_star_reviews', to: "parks#reviews"
+  
   resources :parks  do 
     resources :comments, only: [:new, :create, :edit, :update, :destroy]    
     resources :playdates, only: [:index, :new, :create, :show, :edit, :update, :destroy] 

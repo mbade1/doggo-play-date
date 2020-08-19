@@ -1,6 +1,15 @@
 class ParksController < ApplicationController
   before_action :require_login, except: [:show]
 
+  # five star reviews
+  def reviews
+    @park = params[:park_id]
+    @selected_park = Park.find_by(:id => @park)
+    @comments = @selected_park.comments
+    @reviews = Park.five_star_reviews
+    render :five_star_reviews
+  end
+    
   def index
       @parks = Park.all
   end

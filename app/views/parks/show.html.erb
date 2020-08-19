@@ -13,6 +13,15 @@ Park Description: <u><%= @park.description %></u></h2>
 
 <%= render 'park_playdates_table'%>
 <br><br><br>
+
+<!-- Five Star Reviews -->
+<p>Filter by Five Star Reviews</p>
+
+<%= form_tag("/parks/five_star_reviews", method: "post", :id => "five-star-reviews") do %>
+<%= hidden_field_tag :park_id, @park.id %>
+<%= submit_tag "View Five Star Reviews" %>
+<% end %>
+
 <%= render 'park_reviews' %>
 
 <br>
