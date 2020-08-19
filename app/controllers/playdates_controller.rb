@@ -1,8 +1,8 @@
 class PlaydatesController < ApplicationController
-  def today
+  def dates
     @display_day = params[:date]
     @day = Playdate.current_date(@display_day)
-    render :todays_playdates
+    render :dates_playdates
   end
   
   def index

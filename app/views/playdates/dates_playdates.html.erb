@@ -1,5 +1,5 @@
 <h1>Playdates for <%= @display_day %>!</h1>
-<%= form_tag("/playdates/today", method: "post", :id => "get-day") do %>
+<%= form_tag("/playdates/dates", method: "post", :id => "get-day") do %>
 <%= date_field_tag :date %>
 <%= submit_tag "View another Date" %>
 <% end %>

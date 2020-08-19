@@ -3,7 +3,7 @@
 <p><i>If you logged in with Facebook, your family size is set to 2 members (you + your doggo).</i></p>
 <!--User#Edit - see view explanation: "To change your family size, <%= link_to "click here.", edit_user_path(current_user) %>" -->
 <h3>Select a Date to view Playdates!</h3>
-<%= form_tag("/playdates/today", method: "post", :id => "get-day") do %>
+<%= form_tag("/playdates/dates", method: "post", :id => "get-day") do %>
 <%= date_field_tag :date %>
 <%= submit_tag "Show playdates" %>
 <% end %>
