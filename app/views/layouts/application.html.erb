@@ -4,7 +4,6 @@
     <title>DoggoPlayDate</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
@@ -16,7 +15,6 @@
   <div id="nav">
     <ul>
       <li><a class="navbar" href="<%= root_url %>">Home</a></li>
-
       <% if !current_user %>
         <li><a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a></li>
         <li><%= link_to "Log in", login_path, class:"navbar-brand" %></li>

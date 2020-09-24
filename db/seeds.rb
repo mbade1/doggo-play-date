@@ -10,7 +10,6 @@ user_1 = User.create(username: "Patrick", password: "password", uid: "1011101", 
 user_2 = User.create(username: "Rudy", password: "password", uid: nil, family_size: 3)
 user_3 = User.create(username: "Sandra", password: "password", uid: nil, family_size: 5)
 
-
 park_1 = Park.create(name: "Norwood Estate Dog Park", location: "1009 Edgecliff Terrace", hound: "All", description: "Fenced-off dog park with some park benches, tree shade, water supply & drinking bowls.")
 park_2 = Park.create(name: "Red Bud Isle", location: "3401 Redbud Trail", hound: "Pupper", description: "Lakefront off-leash dog park with 13 acres of recreational space, plus hiking, canoeing & kayaking.")
 park_3 = Park.create(name: "Great Northern Dog Park", location: "7099 Great Northern Blvd", hound: "All", description: "Large off-leash dog area featuring walking paths, a retention pond & grassy open areas.")

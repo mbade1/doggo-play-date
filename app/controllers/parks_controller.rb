@@ -3,9 +3,8 @@ class ParksController < ApplicationController
 
   # five star reviews
   def reviews
-    @park = params[:park_id]
-    @selected_park = Park.find_by(:id => @park)
-    @comments = @selected_park.comments
+    @park = Park.find_by(:id => params[:park_id])
+    @comments = @park.comments
     @reviews = Park.five_star_reviews
     render :five_star_reviews
   end

@@ -1,7 +1,7 @@
-<h1><%= @park.name %>'s <br>5 Star Reviews!</h1>
+<h1><%= @selected_park.name %>'s <br>5 Star Reviews!</h1>
 <% @reviews.each do |review| %>
   <% review.comments.each do |commented_review|%>
-    <%if ((commented_review.park_review == 5) && (commented_review.park_id == @park.id)) %>
+    <%if ((commented_review.park_review == 5) && (commented_review.park_id == @selected_park.id)) %>
       <strong><%= commented_review.user.username %></strong> said: "<%= commented_review.comment %>"<br>
     <% end %>
   <% end %>
